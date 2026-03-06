@@ -4,6 +4,8 @@
 
 **面向 Codex、Claude Code、Cursor、OpenCode 等 MCP Agent 的 Windows 桌面操作技能。**
 
+![Visitor counter](https://count.getloli.com/@cua_desktop_operator_skill?name=cua_desktop_operator_skill&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+
 <p>
   <a href="./README.md"><img alt="English" src="https://img.shields.io/badge/English-111827?style=for-the-badge&labelColor=111827&color=2563EB"></a>
   <a href="./README.zh-CN.md"><img alt="简体中文" src="https://img.shields.io/badge/简体中文-111827?style=for-the-badge&labelColor=111827&color=16A34A"></a>

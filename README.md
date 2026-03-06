@@ -4,6 +4,8 @@
 
 **A Windows-first, MCP-native desktop operation skill for Codex, Claude Code, Cursor, OpenCode, and other MCP-capable AI agents.**
 
+![Visitor counter](https://count.getloli.com/@cua_desktop_operator_skill?name=cua_desktop_operator_skill&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
+
 [![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?style=for-the-badge&logo=windows&logoColor=white)](#)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
 [![MCP](https://img.shields.io/badge/MCP-Local%20stdio-111827?style=for-the-badge)](#)
