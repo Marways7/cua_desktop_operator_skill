@@ -1,90 +1,479 @@
 <div align="center">
 
-# CUA Desktop Operator Skill
+<br/>
 
-**Codex、Claude Code、Cursor、OpenCode などの MCP 対応 AI Agent 向け Windows デスクトップ操作スキル。**
+```
+ ██████╗██╗   ██╗ █████╗     ██████╗ ███████╗███████╗██╗  ██╗████████╗ ██████╗ ██████╗
+██╔════╝██║   ██║██╔══██╗    ██╔══██╗██╔════╝██╔════╝██║ ██╔╝╚══██╔══╝██╔═══██╗██╔══██╗
+██║     ██║   ██║███████║    ██║  ██║█████╗  ███████╗█████╔╝    ██║   ██║   ██║██████╔╝
+██║     ██║   ██║██╔══██║    ██║  ██║██╔══╝  ╚════██║██╔═██╗    ██║   ██║   ██║██╔═══╝
+╚██████╗╚██████╔╝██║  ██║    ██████╔╝███████╗███████║██║  ██╗   ██║   ╚██████╔╝██║
+ ╚═════╝ ╚═════╝ ╚═╝  ╚═╝    ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝
+                         ██████╗ ██████╗ ███████╗██████╗  █████╗ ████████╗ ██████╗ ██████╗
+                        ██╔═══██╗██╔══██╗██╔════╝██╔══██╗██╔══██╗╚══██╔══╝██╔═══██╗██╔══██╗
+                        ██║   ██║██████╔╝█████╗  ██████╔╝███████║   ██║   ██║   ██║██████╔╝
+                        ██║   ██║██╔═══╝ ██╔══╝  ██╔══██╗██╔══██║   ██║   ██║   ██║██╔══██╗
+                        ╚██████╔╝██║     ███████╗██║  ██║██║  ██║   ██║   ╚██████╔╝██║  ██║
+                         ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝
+```
+
+### **Windows ファースト · MCP ネイティブ · Agent 中立**
+
+> 一つの実行レイヤー。すべての MCP 対応 AI Agent。クラウド依存ゼロ。
+
+<br/>
 
 ![Visitor counter](https://count.getloli.com/@cua_desktop_operator_skill?name=cua_desktop_operator_skill&theme=moebooru&padding=7&offset=0&align=top&scale=1&pixelated=1&darkmode=auto)
 
+<br/>
+
+[![Windows](https://img.shields.io/badge/Windows-10%2B-0078D4?style=for-the-badge&logo=windows&logoColor=white)](#)
+[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
+[![MCP](https://img.shields.io/badge/MCP-ローカル%20stdio-111827?style=for-the-badge)](#)
+[![License: AGPL v3](https://img.shields.io/badge/ライセンス-AGPL%20v3-blueviolet?style=for-the-badge&logo=gnu&logoColor=white)](./LICENSE)
+[![Agent Neutral](https://img.shields.io/badge/Agent-中立-0F766E?style=for-the-badge)](#)
+
+<br/>
+
 <p>
-  <a href="./README.md"><img alt="English" src="https://img.shields.io/badge/English-111827?style=for-the-badge&labelColor=111827&color=2563EB"></a>
-  <a href="./README.zh-CN.md"><img alt="简体中文" src="https://img.shields.io/badge/简体中文-111827?style=for-the-badge&labelColor=111827&color=16A34A"></a>
-  <a href="./README.ja.md"><img alt="日本語" src="https://img.shields.io/badge/日本語-111827?style=for-the-badge&labelColor=111827&color=DC2626"></a>
+  <a href="./README.md"><img alt="English" src="https://img.shields.io/badge/English-2563EB?style=for-the-badge&labelColor=1E3A5F"></a>
+  <a href="./README.zh-CN.md"><img alt="简体中文" src="https://img.shields.io/badge/简体中文-16A34A?style=for-the-badge&labelColor=14532D"></a>
+  <a href="./README.zh-Hant.md"><img alt="繁體中文" src="https://img.shields.io/badge/繁體中文-0D9488?style=for-the-badge&labelColor=134E4A"></a>
+  <a href="./README.ja.md"><img alt="日本語" src="https://img.shields.io/badge/日本語-DC2626?style=for-the-badge&labelColor=7F1D1D"></a>
+  <a href="./README.ko.md"><img alt="한국어" src="https://img.shields.io/badge/한국어-7C3AED?style=for-the-badge&labelColor=4C1D95"></a>
 </p>
 
 </div>
 
-## 概要
+---
 
-このリポジトリは**そのまま skill として配置できる構成**です。リポジトリのルート自体が skill ルートです。
+## プロジェクト概要
 
-提供するもの:
+`CUA Desktop Operator Skill` は、MCP 対応のすべての AI Agent に対して構造化された Windows デスクトップ操作能力を提供する**スタンドアロンのクローン即使用可能なスキルリポジトリ**です。
 
-- ローカル MCP server
-- Windows デスクトップ実行 runtime
-- 共通 skill インターフェース
-- 再利用可能な macro
-- タスク単位の一時成果物管理と cleanup
+リポジトリのルートディレクトリ**そのもの**がスキルパッケージです——Agent の skills ディレクトリにクローンするだけで即座に使用できます。
 
-## 主な用途
+```
+agent（Codex / Claude Code / Cursor / OpenCode / ...）
+    └─► MCP クライアント
+            └─► desktop-operator（ローカル stdio サーバー、このリポジトリ）
+                     └─► Windows デスクトップ
+```
 
-- 現在のデスクトップ観測
-- アプリ起動とフォーカス
-- クリック、入力、貼り付け、スクロール、ホットキー
-- 安定した GUI フローの macro 実行
-- 複数 Agent 間で同じデスクトップ操作能力を共有
+---
+
+## なぜこのプロジェクトが必要か
+
+現在のデスクトップ自動化スタックのほとんどは、二つの極端などちらかに偏っています：
+
+| アプローチ | 問題点 |
+|---|---|
+| 脆弱なスクリプト | 構造化された観察モデルがない；UI が少し変わるだけで壊れる |
+| 重量級 Agent システム | 固定されたモデルバックエンド、クラウドプランナー、または専有ビジュアルスタックに依存 |
+
+**CUA Desktop Operator は異なるアプローチを取ります：**
+
+| 設計原則 | 意味 |
+|---|---|
+| 推論は Agent 側に残す | AI モデルが判断し、このスキルは実行するだけ |
+| 実行はローカルに残す | クラウドへの往復なし、外部ビジュアルモデル不要 |
+| インターフェースは統一 | MCP ツールはすべての Agent で完全に同一 |
+| スキルはポータブル | 一度クローンすれば Codex、Claude Code、Cursor で即使用可能 |
+
+結果として、各クライアントのために実行レイヤーを再構築することなく、複数の AI クライアントで再利用できる実用的なデスクトップオペレーターが実現します。
+
+---
+
+## コア機能
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### デスクトップ制御
+- アプリケーションの起動
+- タイトルまたはインデックスによるウィンドウフォーカス
+- 絶対座標またはウィンドウ相対座標でのクリック
+- ホットキーとキーシーケンスの送信
+- テキストの入力と貼り付け（CJK 対応クリップボードモード）
+- スクロールと明示的な待機
+
+</td>
+<td width="50%" valign="top">
+
+### 観察優先ワークフロー
+- フルスクリーンショットのキャプチャ
+- アクティブウィンドウの検出
+- 表示中ウィンドウの一覧
+- ターゲットウィンドウのクロップ画像
+- 有界 UI Automation クエリ
+- 構造化 JSON 状態アーティファクト
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 再利用可能なマクロレイヤー
+- アプリ起動（コマンド、URI、ショートカット）
+- 検索ボックスの送信
+- チャットパネルのトグル
+- メディア再生/一時停止
+- ブラウザのアドレスバーフォーカス
+- Windows 設定を開く
+- 送信/確認操作
+
+</td>
+<td width="50%" valign="top">
+
+### クロス Agent インターフェース
+- Codex
+- Claude Code
+- Cursor
+- OpenCode
+- 手動 stdio 設定による任意の MCP 対応 Agent
+- Agent 中立：同一ツール、同一結果、任意のクライアント
+
+</td>
+</tr>
+</table>
+
+---
+
+## アーキテクチャ
+
+```mermaid
+flowchart TB
+    subgraph Agents["AI Agent 層"]
+        A1["Codex"]
+        A2["Claude Code"]
+        A3["Cursor"]
+        A4["OpenCode"]
+        A5["その他の MCP クライアント"]
+    end
+
+    subgraph Skill["スキル層  •  SKILL.md + references/ + scripts/"]
+        B["スキルインターフェース\n（ワークフロー、ポリシー、セットアップガイド）"]
+    end
+
+    subgraph MCP["MCP 層  •  desktop_operator_mcp/"]
+        C["desktop-operator\nMCP サーバー（stdio）"]
+    end
+
+    subgraph Runtime["ランタイム層  •  desktop_operator_core/"]
+        D["デスクトップランタイム\n（アクション、観察、UIA）"]
+        E["マクロエンジン\n（再利用可能なパターン）"]
+        F["アーティファクトマネージャー\n（タスクスコープの一時ファイル）"]
+    end
+
+    subgraph OS["Windows デスクトップ"]
+        G["アプリケーション"]
+        H["UI Automation ツリー"]
+        I["スクリーンショット / 状態"]
+    end
+
+    Agents --> Skill
+    Agents --> MCP
+    MCP --> Runtime
+    Runtime --> OS
+```
+
+### 各層の責務
+
+**スキル層**
+- このスキルをいつ・どのように使うかを Agent に伝える
+- 「観察 → 計画 → 実行 → 検証」のループワークフローを定義する
+- MCP がまだ設定されていない場合のクライアント設定説明を提供する
+
+**MCP 層**
+- stdio を通じて安定したバージョン管理されたツールサーフェスを公開する
+- すべてのクライアントに対して構造的に一貫した結果を返す
+- サーバーのライフサイクルと接続管理を処理する
+
+**ランタイム層**
+- Win32 / UI Automation を通じて実際のデスクトップ操作を実行する
+- スクリーンショットと構造化されたウィンドウ状態をキャプチャする
+- タスクスコープのアーティファクトとタスク後のクリーンアップを管理する
+
+---
+
+## リポジトリ構成
+
+```text
+cua_desktop_operator_skill/
+├── SKILL.md                          ← Agent が最初に読むファイル
+├── README.md                         ← 英語ドキュメント
+├── README.zh-CN.md                   ← 簡体字中国語
+├── README.zh-Hant.md                  ← 繁体字中国語
+├── README.ja.md                      ← 日本語
+├── README.ko.md                      ← 韓国語
+├── LICENSE                           ← GNU AGPL v3.0
+├── SECURITY.md
+├── agents/
+│   └── openai.yaml                   ← Agent マニフェスト（Codex / OpenCode）
+├── references/
+│   ├── compatibility.md              ← クロス Agent 互換性ノート
+│   ├── failure-recovery.md           ← 障害復旧パターン
+│   ├── interaction-patterns.md       ← インタラクションのベストプラクティス
+│   ├── macro-catalog.md              ← 組み込みマクロリファレンス
+│   ├── mcp-client-setup.md           ← クライアント設定ガイド
+│   └── mcp-tool-catalog.md           ← 完全な MCP ツールリファレンス
+├── scripts/
+│   ├── setup_runtime.ps1             ← 依存関係のインストール
+│   ├── start_mcp_server.ps1          ← MCP サーバーの起動
+│   ├── verify_real_tasks.ps1         ← エンドツーエンドのスキル検証
+│   └── verify_real_tasks.py
+├── desktop_operator_core/            ← ランタイムライブラリ
+└── desktop_operator_mcp/             ← MCP サーバーパッケージ
+```
+
+---
 
 ## クイックスタート
 
-1. skills ディレクトリへクローンします:
+### ステップ 1 — skills ディレクトリにクローン
 
 ```powershell
-git clone https://github.com/Marways7/cua_desktop_operator_skill "$HOME\\.codex\\skills\\cua_desktop_operator_skill"
+# Codex の場合
+git clone https://github.com/Marways7/cua_desktop_operator_skill "$HOME\.codex\skills\cua_desktop_operator_skill"
+
+# Claude Code の場合
+git clone https://github.com/Marways7/cua_desktop_operator_skill "$HOME\.claude\skills\cua_desktop_operator_skill"
+
+# Cursor の場合
+git clone https://github.com/Marways7/cua_desktop_operator_skill "$HOME\.cursor\skills\cua_desktop_operator_skill"
 ```
 
-2. 依存関係をインストールします:
+### ステップ 2 — 依存関係のインストール
 
 ```powershell
 .\scripts\setup_runtime.ps1
 ```
 
-3. MCP server を起動します:
+カスタムディレクトリに明示的にインストールする場合：
+
+```powershell
+.\scripts\setup_runtime.ps1 -InstallDir "$HOME\.codex\skills\cua_desktop_operator_skill"
+```
+
+### ステップ 3 — ローカル MCP サーバーの起動
 
 ```powershell
 .\scripts\start_mcp_server.ps1
 ```
 
-4. `references/mcp-client-setup.md` を参照して Agent 側で MCP を設定します。
+### ステップ 4 — Agent への接続
 
-## ディレクトリ構成
+各クライアントの設定については [`references/mcp-client-setup.md`](./references/mcp-client-setup.md) を参照してください。
 
-```text
-cua_desktop_operator_skill/
-├─ SKILL.md
-├─ agents/
-├─ references/
-├─ scripts/
-├─ desktop_operator_core/
-└─ desktop_operator_mcp/
+| クライアント | 設定方法 |
+|---|---|
+| Codex | `agents/openai.yaml` マニフェストファイル |
+| Claude Code | `.mcp.json` または `settings.json` のサーバーエントリ |
+| Cursor | Cursor 設定の MCP サーバー設定 |
+| OpenCode | `agents/openai.yaml` マニフェストファイル |
+| その他 | リファレンスファイルの汎用 stdio ペイロード |
+
+### ステップ 5 — Agent による操作開始
+
+接続後、Agent は自動的に以下のループを実行します：
+
+```
+観察 → 計画 → 実行 → 検証 → （クリーンアップ）
 ```
 
-## 一時ファイル方針
+1. `desktop_observe` を呼び出す — 現在のデスクトップ状態を取得
+2. 次の最小限の安全なステップを計画する
+3. MCP 経由で実行する
+4. `desktop_validate_state` で結果を検証する
+5. 完了するまで繰り返す
+6. 成功後に `desktop_cleanup_artifacts` を呼び出す
 
-- スクリーンショット、JSON 状態、実行ログは一時成果物として扱います
-- 既定ではローカル OS のディレクトリに保存し、リポジトリには書き戻しません
-- タスク完了後は Agent が `desktop_cleanup_artifacts` を呼び出します
-- ユーザーが保持を明示した場合のみ成果物を残します
+---
 
-詳細は英語版 README を参照してください:
+## MCP ツールリファレンス
 
-- [README.md](./README.md)
+### 観察ツール
+
+| ツール | 説明 |
+|---|---|
+| `desktop_observe` | フルスクリーンショット、アクティブウィンドウ、ウィンドウリスト、オプションのターゲットウィンドウクロップ画像、JSON 状態アーティファクトをキャプチャ |
+| `desktop_get_last_artifacts` | 最新のスクリーンショット、状態、実行、失敗アーティファクトのパスを読み込む |
+| `desktop_cleanup_artifacts` | タスク成功完了後にタスクスコープの一時ファイルを削除 |
+
+### ウィンドウ管理
+
+| ツール | 説明 |
+|---|---|
+| `desktop_list_windows` | すべての表示中ウィンドウのクイックインベントリ |
+| `desktop_find_window` | タイトルフィルターで候補ウィンドウを検索 |
+| `desktop_focus_window` | キーボード操作の前にウィンドウを前面に持ってくる |
+| `desktop_launch_app` | シェルコマンド、実行ファイル、URI、またはショートカットを起動 |
+
+### プリミティブアクション
+
+| ツール | 使用場面 |
+|---|---|
+| `desktop_click_relative` | **推奨** — ターゲットウィンドウ相対位置でのクリック |
+| `desktop_click_absolute` | 最終手段 — 絶対スクリーン座標でのクリック |
+| `desktop_send_keys` | 単一キーまたはホットキーシーケンス（`Ctrl+C`、`Alt+F4` など） |
+| `desktop_type_text` | 短い純粋な ASCII テキスト |
+| `desktop_paste_text` | **CJK または長いテキストに推奨** — クリップボードバックの貼り付け |
+| `desktop_scroll` | フォーカスされたエリアをスクロール |
+| `desktop_wait` | UI 読み込み中の明示的な待機 |
+
+### UI Automation ツール
+
+| ツール | 説明 |
+|---|---|
+| `desktop_uia_query` | オプションのセレクター（テキスト、Automation ID、コントロールタイプ）で UIA コントロールを列挙 |
+| `desktop_uia_click` | テキスト、Automation ID、またはコントロールタイプで UIA コントロールをクリック |
+| `desktop_uia_type` | UIA コントロールにフォーカスしてテキストを入力 |
+
+### ワークフロータール
+
+| ツール | 説明 |
+|---|---|
+| `desktop_run_macro` | 組み込みマクロを実行；`macro_id="__catalog__"` で全マクロを一覧表示 |
+| `desktop_validate_state` | アクション後にウィンドウまたはコントロールが存在することを検証 |
+
+詳細な説明：[`references/mcp-tool-catalog.md`](./references/mcp-tool-catalog.md)
+
+---
+
+## マクロカタログ
+
+マクロは安定した再利用可能な GUI 操作パターンをカプセル化します。既知のフローにはプリミティブより優先してマクロを使用してください。
+
+| マクロ ID | カテゴリ | 目的 |
+|---|---|---|
+| `app_launch` | アプリ起動 | コマンド、URI、または実行ファイルでアプリを起動 |
+| `desktop_shortcut_launch` | アプリ起動 | `.lnk` ショートカットパスで起動 |
+| `search_box_submit` | 検索 | 検索ボックスにフォーカス、クエリを入力、送信 |
+| `chat_panel_toggle` | チャット | ホットキーまたは相対クリックでチャットパネルをトグル |
+| `media_play_pause` | メディア | メディアプレーヤーに再生/一時停止キーを送信 |
+| `browser_focus_address_bar` | ブラウザ | ショートカットでブラウザのアドレスバーにフォーカス |
+| `submit_or_confirm` | 確認 | 送信/確認キーシーケンスを押す |
+| `open_windows_settings` | 設定 | Windows 設定アプリを開く |
+
+詳細な説明：[`references/macro-catalog.md`](./references/macro-catalog.md)
+
+---
+
+## 設計原則
+
+| 原則 | 詳細 |
+|---|---|
+| **Agent 中立** | 一つの実行レイヤー、複数のクライアント——同一の MCP ツールがすべての Agent を変更なしで処理する |
+| **ローカルファースト** | クラウドプランナー不要；外部ビジュアルモデル不要；完全にローカルマシン上で動作 |
+| **行動の前に観察** | すべてのインタラクションループは `desktop_observe` から始まる；盲目的に行動しない |
+| **小さく安全なステップ** | 各アクションを有界に保つ；可逆的なアクションを優先；変更後は毎回検証する |
+| **脆弱より再利用可能** | 繰り返し可能なパターンにはマクロを使用；必要な時だけプリミティブに降格する |
+| **デフォルトでポータブル** | ハードコードされたマシンパスなし；ユーザープロファイルの前提なし；リポジトリローカルのアーティファクト依存なし |
+
+---
+
+## Agent 推奨ワークフロー
+
+```
+1.  desktop-operator MCP サーバーが接続されていることを確認する。
+    └─ 未接続の場合：references/mcp-client-setup.md に従って設定してから続行。
+
+2.  desktop_observe を呼び出す。
+    └─ 確認事項：スクリーンショットパス、アクティブウィンドウ、表示中ウィンドウ、オプションのクロップ画像。
+
+3.  以下の優先順位で次の最小限のアクションを選択する：
+    desktop_focus_window            → キーボード入力の前に
+    desktop_run_macro               → 認識された再利用可能なパターンに
+    desktop_click_relative          → 安定したウィンドウ相対位置に
+    desktop_uia_click / uia_type    → 信頼できる UIA コントロールが見える時
+    desktop_click_absolute          → 最終手段
+
+4.  アクションを実行する。
+
+5.  desktop_observe または desktop_validate_state を呼び出して結果を確認する。
+
+6.  成功条件が満たされるまでステップ 2 から繰り返す。
+
+7.  desktop_cleanup_artifacts を呼び出す。
+    └─ ユーザーがデバッグトレースの保持を明示的に要求した場合のみスキップ。
+```
+
+---
+
+## ポータビリティとプライバシー
+
+このリポジトリはオープンソース配布のために準備されています。
+
+### 削除されたもの
+
+- ハードコードされたローカル Windows パス
+- ハードコードされたユーザープロファイル参照
+- リポジトリローカルのランタイム出力前提
+- 最終スキルパッケージと無関係なレガシー上流ディレクトリ
+
+### アーティファクトの動作
+
+タスクのスクリーンショット、JSON 状態ファイル、実行ログはデフォルトで**一時アーティファクト**として扱われます。
+
+| プロパティ | 値 |
+|---|---|
+| デフォルト保存先 | `%LOCALAPPDATA%\desktop-operator\artifacts`（Windows）/ システム一時ディレクトリ（フォールバック） |
+| スコープ | 現在のタスクセッションのみ |
+| クリーンアップ | タスク成功後に Agent が `desktop_cleanup_artifacts` を呼び出す |
+| オーバーライド | `DESKTOP_OPERATOR_ARTIFACTS` 環境変数を設定 |
+
+アーティファクトはリポジトリに**コミットされることはありません**。
+
+---
+
+## バリデーション
+
+組み込みのバリデーションスクリプトを実行して、スキルがエンドツーエンドで動作することを確認します：
+
+```powershell
+.\scripts\verify_real_tasks.ps1 --task observe
+```
+
+サポートされているバリデーションターゲット：
+
+| ターゲット | テスト内容 |
+|---|---|
+| `observe` | スクリーンショットのキャプチャとウィンドウ検出 |
+| `notepad` | メモ帳の起動、入力、保存 |
+| `browser` | ブラウザのアドレスバーとナビゲーション |
+| `settings` | Windows 設定を開く |
+| `media` | マクロ経由でメディア再生/一時停止 |
+| `chat` | マクロ経由でチャットパネルをトグル |
+| `all` | すべてのターゲットを順番に実行 |
+
+検証後にアーティファクトを保持して検査する場合：
+
+```powershell
+.\scripts\verify_real_tasks.ps1 --task all --keep-artifacts
+```
+
+---
+
+## 出典
+
+このプロジェクトは以下の公開されたデスクトップ Agent 研究から着想を得ています：
+
+- [microsoft/cua_skill](https://github.com/microsoft/cua_skill)
+- [bytedance/UI-TARS-desktop](https://github.com/bytedance/UI-TARS-desktop)
+
+リリースされたワーキングツリーには、元の上流ソースツリーではなく、このリポジトリ独自のランタイム、MCP サーバー、およびスキルファイルが含まれています。
+
+---
 
 ## ライセンス
 
-本プロジェクトは [GNU AGPL v3.0](./LICENSE) で公開します。
+このプロジェクトは [GNU Affero General Public License v3.0](./LICENSE) の下で配布されています。
 
-修正版を配布する場合や、修正版をサービスとして提供する場合は、同じライセンスで対応するソースコードを公開する前提です。
+AGPL を使用しているのは、再配布またはホストされた修正版が同じライセンスの下でオープンであり続けるようにするためです。
 
-## Star History
+---
+
+## Star の推移
 
 [![Star History Chart](https://api.star-history.com/svg?repos=Marways7/cua_desktop_operator_skill&type=Date)](https://star-history.com/#Marways7/cua_desktop_operator_skill&Date)
